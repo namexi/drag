@@ -1,0 +1,11 @@
+{
+  "mock/api/login": {
+    "post": {
+      "data": {
+        "status": true,
+        "message": 1,
+        "data": true
+      }
+    }
+  }
+}

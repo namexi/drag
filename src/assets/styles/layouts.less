@@ -1,0 +1,50 @@
+/**
+ * Created by Xd on 2019/11/25.
+ */
+@import "./var";
+
+.globalLayoutHeader {
+  height: @globalLayoutHeight;
+  line-height: @globalLayoutHeight;
+  background: @globalLayoutBgColor;
+  border-bottom: 1px solid #DCE1E4;
+}
+
+.configuration-header {
+  display: flex;
+  height: 56px;
+  border-bottom: 1px solid #DCE1E4;
+  box-sizing: border-box;
+  line-height: 56px;
+  background: #fff;
+  .right {
+    flex: 1;
+    display: inline-block;
+    text-align: right;
+    padding: 0 24px 0 0;
+  }
+}
+.configuration-main {
+  height: calc(100% - 56px);
+  background: @mianBackroundColor;
+  display: flex;
+  .left {
+    width: @dragLeftWidth;
+    height: 100%;
+    background: @connectBackroundColor;
+    overflow: auto;
+  }
+  .main-connect {
+    flex: 1;
+    background: @connectBackroundColor;
+    margin: 8px;
+    position: relative;
+  }
+  .right {
+    width: @dragRightWidth;
+    height: 100%;
+    background: @connectBackroundColor;
+    overflow: auto;
+  }
+}
+

@@ -1,0 +1,391 @@
+/**
+ * Created by Xd on 2019/11/27.
+ */
+
+@import "./var";
+
+.drag-container {
+  position: relative;
+  border: 1px dashed rgba(220,225,228,1);
+  .dragDel{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: red;
+    &:hover{
+      color: orangered;
+    }
+  }
+}
+
+.ps-ab {
+  position: absolute;
+  z-index: 3;
+}
+
+i{
+  cursor: pointer;
+  &:hover{
+  }
+}
+.drag-cursor{
+  cursor: move;
+}
+
+.dragplacement-box{
+  height: 100%;
+
+  .el-form {
+    height: 100%;
+  }
+  position: absolute;
+  top:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  .drag-placement-main {
+    height: 100%;
+    overflow: auto;
+
+    .drag-form-list{
+      padding: 4px;
+      min-height: 600px;
+      height: 100%;
+
+      label {
+        font-weight: 700;
+      }
+
+      .drag-el{
+        .drag-container;
+        //position: relative;
+        margin-bottom: 12px;
+        //border: 1px dashed rgba(220,225,228,1);
+        padding: 24px 30px 24px 30px;
+
+        &.is_req {
+          .el-form-item__label::before {
+            content: '*';
+            color: #f56c6c;
+            margin-right: 4px;
+          }
+        }
+
+        &:hover{
+          background: @hoveBgColorE4;
+        }
+
+        &:after{
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          display: block;
+        }
+        &.active {
+          border: 1px solid @color-primary;
+          border-left: 8px solid #10A2FC;
+        }
+
+        &.ghost{
+          background: @color-primary;
+          border: 2px solid @color-primary;
+          height: 3px;
+          box-sizing: border-box;
+          font-size: 0;
+          content: '';
+          overflow: hidden;
+          padding: 0;
+        }
+
+        &.ghostHeader{
+          background: @color-primary;
+          border: 2px solid @color-primary;
+          outline-width: 0;
+          width: 3px;
+          height: 3px;
+          box-sizing: border-box;
+          font-size: 0;
+          content: '';
+          overflow: hidden;
+          padding: 0;
+        }
+        .dragEl-icon{
+          left: -106px;
+          bottom: -18px;
+          top: 11px;
+        }
+
+        .dragEl-operating{
+          height: 32px;
+          background: @color-primary;
+          color: #fff;
+          text-align: center;
+          right: -30px;
+          bottom: -25px;
+          i {
+            width: 32px;
+          }
+        }
+      }
+
+    }
+  }
+
+
+
+  .ghost{
+    background: @color-primary;
+    //border: 2px solid @color-primary;
+    //position: relative;
+
+    &::after{
+      background: @color-primary;
+    }
+  }
+  .ghostHeader{
+    background: @color-primary;
+    &::after{
+      background: @color-primary;
+    }
+
+  }
+  li.ghost{
+    height: 3px;
+    font-size: 0;
+    overflow: hidden;
+  }
+
+  li.ghostHeader {
+    height: 3px;
+    font-size: 0;
+    overflow: hidden;
+  }
+}
+
+.editing {
+  .el-dialog{
+    .el-dialog__header{
+      background: #10A2FC;
+
+      .el-dialog__title, .el-dialog__headerbtn{
+        color: #fff;
+      }
+      .el-dialog__close{
+        color: #fff;
+      }
+    }
+    .el-dialog__body {
+      padding: 12px 31px;
+    }
+    .el-dialog__footer{
+      padding: 0 32px 24px;
+    }
+  }
+}
+
+
+// 复合模版 拖拽区
+.drag-placement {
+  position: absolute;
+  width: 300px;
+  text-align: center;
+  left: 50%;
+  margin-left: -150px;
+  top: 50%;
+  /*margin-top: 45%;*/
+}
+
+// 布局容器 通用样式
+.el-header, .el-footer {
+  background-color: #E4F4FE;
+  color: #333;
+  //text-align: right;
+  line-height: 60px;
+  margin-bottom: 9px;
+  //overflow-x: auto;
+}
+
+.el-aside {
+  background-color: #E4F4FE;
+  color: #333;
+  text-align: center;
+  //line-height: 200px;
+}
+
+.el-main {
+  background-color: #E4F4FE;
+  color: #333;
+  text-align: center;
+  //line-height: 160px;
+}
+
+.title {
+  height: 56px;
+  line-height: 56px;
+  margin-left: 12px;
+  span {
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    font-size: 16px;
+    padding-left: 12px;
+    font-weight: 500;
+    color: #404351;
+    border-left: 4px solid #10a2fc;
+  }
+}
+
+// 模板中心
+.main-table {
+  //display: flex;
+  //flex-flow: column;
+  height: calc(100% - 61px - 64px);
+  margin: 22px 24px;
+  background: #fff;
+  border-radius:8px;
+}
+.el-table--fit{
+  //border-right: 1;
+  //border-bottom: 1;
+  border: 1px solid @borderColorE4;
+}
+
+.primary{
+  color: #3a8ee6;
+}
+
+.success{
+  color: @success;
+  &:hover {
+    color: #6eef9e;
+  }
+}
+
+.warning{
+  color: @warning;
+  &:hover{
+    color: #ebb563;
+  }
+}
+
+.danger {
+  color: @danger;
+  &:hover{
+    color: orangered;
+  }
+}
+
+.statusFlag{
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  line-height: 15px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.bgsuccess {
+  background:@success;
+}
+
+.bgwarning {
+  background: @warning !important;
+  border: none;
+}
+
+.bgoffline {
+  background: @offline;
+}
+
+.bgprimary{
+  background: @primary;
+}
+
+.bgdanger{
+  background: @danger !important;
+  border: none;
+}
+
+// tab 切换
+.el-tabs{
+  .el-tabs__header{
+    .el-tabs__nav{
+      //width: 120px;
+      .el-tabs__active-bar{
+        width: 120px !important;
+      }
+      .el-tabs__item{
+        width: 120px !important;
+        text-align: center;
+      }
+    }
+  }
+
+}
+
+// 布局预览
+.layoutComponent {
+  .el-main{
+    text-align: left;
+    background-color: #fff;
+    padding: 0;
+  }
+  .el-aside{
+    background: #fff;
+  }
+  .el-header, .el-footer {
+    background-color: #fff;
+    padding: 0;
+  }
+  .el-col-12{
+    width: auto;
+  }
+}
+
+// 弹窗
+.el-dialog {
+  .el-dialog__body{
+    height: 80%;
+    .el-form {
+      height: 100%;
+      .el-form-item {
+        height: 100%;
+        .el-form-item__content{
+          height: 100%;
+          .el-cascader-panel {
+            height: 100%;
+            .el-scrollbar.el-cascader-menu {
+              height: 100% !important;
+              &:not(:last-child) {
+                //width: 25% !important;
+                min-width: 180px;
+              }
+
+              &:nth-child(3) {
+                flex: 1;
+                //width: 50% !important;
+                .el-cascader-menu__wrap{
+                  .el-cascader-menu__list {
+                    li.el-cascader-node {
+                      display: inline-block;
+                    }
+                  }
+                }
+              }
+              .el-cascader-menu__wrap{
+                height: 100% !important;
+                .el-scrollbar__view.el-cascader-menu__list{
+                  height: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

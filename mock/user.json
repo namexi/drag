@@ -1,0 +1,16 @@
+{
+  "/mock/api/userInfo": {
+    "get": {
+      "data": {
+        "status": 200,
+        "message": 1,
+        "data": {
+          "id": 1,
+          "name": "testAdmin",
+          "userType": 1,
+          "appId": "e89ec3c05f4f4e3c88fd4eb87094a069"
+        }
+      }
+    }
+  }
+}
