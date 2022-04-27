@@ -36,7 +36,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.0.0",
-    "grunt": "^1.0.4",
+    "grunt": "^1.5.2",
     "grunt-restful-mock": "^0.2.1",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
